@@ -21,7 +21,7 @@ public class RecipeDTO implements Serializable {
     private String name;
     private List<String> ingredients;
     private String cookingInstructions;
-    private boolean vegetarian;
+    private Boolean vegetarian;
     private Integer servesNoPeople;
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd‐MM‐yyyy HH:mm")
     private Date creationDate;
@@ -58,12 +58,17 @@ public class RecipeDTO implements Serializable {
         this.cookingInstructions = cookingInstructions;
     }
 
-    public boolean isVegetarian() {
+    public Boolean getVegetarian() {
+        return vegetarian == null ? false : vegetarian;
+    }
+
+    // This is needed for PATCH in order to keep the boolean primitive type in the entity
+    public Boolean getVegetarianObject() {
         return vegetarian;
     }
 
-    public void setVegetarian(boolean vegetarian) {
-        this.vegetarian = vegetarian;
+    public void setVegetarian(Boolean vegetarian) {
+        this.vegetarian = vegetarian != null ? vegetarian : false;
     }
 
     public Integer getServesNoPeople() {

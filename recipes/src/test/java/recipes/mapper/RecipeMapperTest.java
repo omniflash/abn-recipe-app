@@ -31,7 +31,7 @@ public class RecipeMapperTest {
         Assert.assertEquals(result.getCreationDate(),dto.getCreationDate());
         Assert.assertEquals(result.getId(),dto.getId());
         Assert.assertEquals(result.getServesNoPeople(),dto.getServesNoPeople().intValue());
-        Assert.assertEquals(result.isVegetarian(),dto.isVegetarian());
+        Assert.assertEquals(result.isVegetarian(),dto.getVegetarian().booleanValue());
 
     }
 
@@ -47,7 +47,7 @@ public class RecipeMapperTest {
         Assert.assertEquals(result.getCreationDate(),entity.getCreationDate());
         Assert.assertEquals(result.getId(),entity.getId());
         Assert.assertEquals(result.getServesNoPeople().intValue(),entity.getServesNoPeople());
-        Assert.assertEquals(result.isVegetarian(),entity.isVegetarian());
+        Assert.assertEquals(result.getVegetarian().booleanValue(),entity.isVegetarian());
     }
 
 }

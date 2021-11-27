@@ -5,7 +5,7 @@ Description:
 ------------
 
 The application is a single module Spring Boot application, which exposes REST endpoints, uses basic authentication managing two roles with an in memory H2 db. 
-It has a ThymeLeaf UI for demonstrating the usage of mentioned endpoints and provides and API documentation using Swagger UI.
+It has a ThymeLeaf UI for demonstrating the usage of mentioned endpoints and provides API documentation using Swagger UI.
 
 Although the UI is not single page design, I still wanted to show the usage of the API with a user interface and it is
 a convenient way of including the API documentation too.

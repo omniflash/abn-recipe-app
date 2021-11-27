@@ -36,7 +36,7 @@ public class RecipeMapper {
         result.setIngredients(dto.getIngredients());
         result.setCookingInstructions(dto.getCookingInstructions());
         result.setServesNoPeople(dto.getServesNoPeople() == null ? 0 : dto.getServesNoPeople());
-        result.setVegetarian(dto.isVegetarian());
+        result.setVegetarian(dto.getVegetarian());
         result.setName(dto.getName());
         result.setId(dto.getId());
 
@@ -59,8 +59,8 @@ public class RecipeMapper {
             recipe.setServesNoPeople(dto.getServesNoPeople());
         }
 
-        if (dto.isVegetarian() != recipe.isVegetarian()) {
-            recipe.setVegetarian(dto.isVegetarian());
+        if (dto.getVegetarianObject() != null) {
+            recipe.setVegetarian(dto.getVegetarianObject().booleanValue());
         }
 
         if (dto.getName() != null) {
