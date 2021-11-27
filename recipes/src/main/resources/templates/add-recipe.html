@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Add a recipe</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link th:href="@{/css/main.css}" rel="stylesheet"></link>
+
+</head>
+<body>
+<div class="wrapper">
+    <div id="headerDiv">
+        <h1>Add Recipe</h1>
+    </div>
+    <div class="container my-5">
+        <h2 class="mb-5">Add new recipe</h2>
+        <div class="row">
+            <div class="col-md-6">
+                <form action="#" th:action="@{/saverecipe}" th:object="${recipe}" method="post">
+                    <div class="row">
+                        <div class="form-group col-md-6">
+                            <table>
+                                <tr>
+                                    <td class="labelCell"><label for="name" class="label">Name</label></td>
+                                    <td><input type="text" th:field="*{name}" class="form-control" id="name"
+                                               placeholder="Name"></td>
+                                    <span th:if="${#fields.hasErrors('name')}" th:errors="*{name}"
+                                          class="text-danger"></span>
+                                </tr>
+                            </table>
+                        </div>
+
+                        <div class="form-group col-md-6">
+                            <table>
+                                <tr>
+                                    <td class="labelCell">
+                                        <label for="name" class="label">Serves</label></td>
+                                    <td>
+                                        <input type="number" min="1" th:field="*{servesNoPeople}" class="form-control"
+                                               id="servesNo" placeholder="0">
+                                    </td>
+                                    <span th:if="${#fields.hasErrors('servesNoPeople')}" th:errors="*{servesNoPeople}"
+                                          class="text-danger"></span>
+                                </tr>
+                            </table>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <table>
+                                <tr>
+                                    <td class="labelCell">
+                                        <label for="name" class="label">Vegetarian</label></td>
+                                    <td>
+                                        <input type="checkbox" th:field="*{vegetarian}" name="active"
+                                               th:checked="${recipe.vegetarian}"/>
+                                    </td>
+                                </tr>
+                            </table>
+
+                        </div>
+                        <div id="ingredientsList">
+                            <div id="ingredientsListHeader">Ingredients</div>
+                            <div th:if="${not #lists.isEmpty(recipe.ingredients)}">
+                                <table>
+                                    <tr th:each="ingredient, iter : ${recipe.ingredients}">
+                                        <td ingCell><input th:value="${recipe.ingredients[__${iter.index}__]}"
+                                                           th:field="${recipe.ingredients[__${iter.index}__]}"></td>
+                                        <td>
+                                            <a th:href="@{/deleteIngredient/{id}/{recipeId}(id=${recipe.id},recipeId=${iter.index})}"
+                                               class="btn">Remove</a></td>
+                                    </tr>
+                                </table>
+                            </div>
+                            <table>
+                                <tr>
+                                    <td class="ingCell" style="width:170px;"><input type="text"
+                                                                                    id="newIngredientInput"/></td>
+                                    <td><input type="button" name="addIngredient" class="btn" value="Add"/></td>
+                                </tr>
+                            </table>
+                        </div>
+                        <div id="instructions">
+                            <div id="instructionsHeader">Cooking instructions</div>
+                            <div class="form-group col-md-6">
+                                <table>
+                                    <tr>
+                                        <td colspan="2">
+                                        <textarea class="textareaInput form-control"
+                                                  th:field="*{cookingInstructions}" th:value="*{cookingInstructions}"
+                                                  name="cookingInstructions"
+                                                  id="cookingInstructions" placeholder="Description">
+                                        </textarea>
+                                        </td>
+                                        <span th:if="${#fields.hasErrors('cookingInstructions')}"
+                                              th:errors="*{cookingInstructions}" class="text-danger"></span>
+                                    </tr>
+                                </table>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row" style="margin-top:10px;">
+                        <div class="col-md-6 mt-5">
+                            <input type="submit" class="btn" value="Save recipe">
+                        </div>
+
+                        <div class="col-md-6 mt-5">
+                            <p class="my-5"><a href="/index" class="btn">Back</a></p>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+
+<script>
+
+
+</script>
+
+
+</html>

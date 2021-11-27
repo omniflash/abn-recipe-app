@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>My Recipes</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../css/main.css">
+</head>
+<body>
+<div class="wrapper">
+    <div id="headerDiv">
+        <h1 style="padding-top:45px;">My Recipes</h1>
+    </div>
+    <div th:switch="${recipes}">
+        <div class="row">
+            <div class="col-md-6">
+                <h2 th:case="null">No recipes yet!</h2>
+                <div th:case="*">
+                    <h2 class="my-5">Currently available recipes</h2>
+                    <table id="indexTable">
+                        <thead>
+                        <tr>
+                            <th>Recipe name</th>
+                            <th>Vegetarian</th>
+                            <th>Serves</th>
+                            <th>Created / Updated on</th>
+                            <th>Edit</th>
+                            <th>Delete</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr th:each="recipe : ${recipes}">
+                            <td th:text="${recipe.name}"></td>
+                            <td th:text="${recipe.vegetarian}"></td>
+                            <td th:text="${recipe.servesNoPeople}"></td>
+                            <td th:text="${recipe.createdString}"></td>
+                            <td><a th:href="@{/editrecipe/{id}(id=${recipe.id})}" class="btn">Edit</a></td>
+                            <td><a th:href="@{/delete/{id}(id=${recipe.id})}" class="btn">Delete</a></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <p><a href="/addnewrecipe" class="btn">Add</a></p>
+                <p><a href="/" class="btn">Home</a></p>
+
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

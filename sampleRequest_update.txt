@@ -1,0 +1,10 @@
+{
+  "name": "Updated recipe",
+  "ingredients": [
+    "Updated ingredient 1","Updated ingredient 2"
+  ],
+  "cookingInstructions": "Updated instructions",
+  "vegetarian": true,
+  "servesNoPeople": 7,
+  "creationDate": "10‐12‐2021 07:20"
+}

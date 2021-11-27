@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>My Recipes</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../css/main.css">
+</head>
+<body>
+<div id="headerDiv">
+    <h1>ABN Amro - Recipes Demo Application</h1>
+</div>
+<table id="welcomeTable">
+    <tr>
+        <td id="recipesCell"><a href="/index" class="btn mainbtn">Recipes</a></td>
+    </tr>
+    <tr>
+        <td id="apiCell"><a  class="btn mainbtn" target="_blank"
+                            onclick="window.open('/dev/api-documentation.html', 'API Documentation','width=1024,height=768')"
+                            href="/dev/api-documentation.html">API documentation</a></td>
+    </tr>
+    <tr>
+        <td id="logoutCell"><a href="/logout" class="btn mainbtn">Log out</a></td>
+    </tr>
+</table>
+
+</body>
+</html>

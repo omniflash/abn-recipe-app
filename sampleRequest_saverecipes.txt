@@ -1,0 +1,42 @@
+[
+  {
+    "name": "Chicken with potato",
+    "ingredients": [
+        "Chicken","Potato","Ketchup"
+    ],
+    "cookingInstructions": "Cook the chicken and the potato and serve with ketchup.",
+    "vegetarian": false,
+    "servesNoPeople": 2,
+    "creationDate": "10-12-2020 07:20"
+    },
+  {
+    "name": "Beef with rice",
+    "ingredients": [
+        "Beef","Rice","Beans"
+    ],
+    "cookingInstructions": "You know what to do.",
+    "vegetarian": false,
+    "servesNoPeople": 3,
+    "creationDate": "10-12-2010 07:20"
+    },
+      {
+    "name": "Vegetarian recipe",
+    "ingredients": [
+        "Cucumber","Tomato","Lettuce"
+    ],
+    "cookingInstructions": "Make a salad.",
+    "vegetarian": true,
+    "servesNoPeople": 1,
+    "creationDate": "01-12-2020 07:20"
+    },
+      {
+    "name": "Salmon sandwich",
+    "ingredients": [
+        "Salmon","Ciabatta","Mayo"
+    ],
+    "cookingInstructions": "Assemble the sandwich",
+    "vegetarian": false,
+    "servesNoPeople": 5,
+    "creationDate": "10-12-2020 04:20"
+    }
+]
