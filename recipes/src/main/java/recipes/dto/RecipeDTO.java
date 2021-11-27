@@ -12,7 +12,6 @@ import java.util.List;
  * DTO for Recipe objects
  *
  * @author wabel
- *
  */
 public class RecipeDTO implements Serializable {
 
@@ -24,7 +23,7 @@ public class RecipeDTO implements Serializable {
     private String cookingInstructions;
     private boolean vegetarian;
     private int servesNoPeople;
-    @JsonFormat(shape=JsonFormat.Shape.STRING, pattern = "dd‐MM‐yyyy HH:mm")
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd‐MM‐yyyy HH:mm")
     private Date creationDate;
 
     public Integer getId() {
@@ -81,7 +80,7 @@ public class RecipeDTO implements Serializable {
 
     // Used on frontend to display
     public String getCreatedString() {
-        return creationDate == null ?  DATE_FORMAT.format(new Date()) : DATE_FORMAT.format(creationDate);
+        return creationDate == null ? DATE_FORMAT.format(new Date()) : DATE_FORMAT.format(creationDate);
     }
 
     public void setCreationDate(Date creationDate) {

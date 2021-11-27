@@ -14,7 +14,7 @@ import java.util.Set;
  * @author wabel
  */
 @Entity
-@Table(name="RECIPES")
+@Table(name = "RECIPES")
 public class Recipe {
 
     @Id

@@ -11,8 +11,10 @@
 </head>
 <body>
 <div class="wrapper">
-    <div id="headerDiv">
-        <h1>Edit Recipe</h1>
+    <div class="headerWrapper">
+        <div id="headerDiv">
+            <h1>Edit Recipes</h1>
+        </div>
     </div>
     <div class="container my-5">
         <h2 class="mb-5">Edit recipe</h2>
@@ -76,7 +78,7 @@
                                 <tr>
                                     <td class="ingCell" style="width:170px;"><input type="text"
                                                                                     id="newIngredientInput"/></td>
-                                    <td><input type="button" name="addIngredient" class="btn" value="Add"/></td>
+                                    <td><input type="button" name="addIngredient" class="btn" value="Add" onclick="javascript:alert('Not implemented. Please use /external/editrecipe/{id} endpoint to update ingredients.')"/></td>
                                 </tr>
                             </table>
                         </div>

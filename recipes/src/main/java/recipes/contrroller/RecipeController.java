@@ -162,7 +162,7 @@ public class RecipeController {
     })
     @GetMapping("/deleteIngredient/{id}/{recipeId}")
     public String deleteIngredient(@PathVariable("id") Integer id, @PathVariable("recipeId") Integer recipeId, Model model) {
-        LOGGER.info("Deleting ingredient no. {} recipe with id {}",recipeId, id);
+        LOGGER.info("Deleting ingredient no. {} recipe with id {}", recipeId, id);
         RecipeDTO recipeById = recipeService.findRecipeById(id);
         List<String> ingredients = new ArrayList<>(recipeById.getIngredients());
         ingredients.remove(recipeId.intValue());

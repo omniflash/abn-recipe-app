@@ -30,18 +30,18 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     public void configure(HttpSecurity http) throws Exception {
 
         http
-        .csrf().disable()
-        .httpBasic()
-        .and()
-        .authorizeRequests()
-        .antMatchers(HttpMethod.GET, "/dev/**").hasRole("ADMIN")
-        .antMatchers(HttpMethod.GET, "/external/**").hasRole("ADMIN")
-        .antMatchers(HttpMethod.POST, "/external/**").hasRole("ADMIN")
-        .antMatchers(HttpMethod.PUT, "/external/**").hasRole("ADMIN")
-        .antMatchers(HttpMethod.DELETE, "/external/**").hasRole("ADMIN")
-        .anyRequest().hasRole("USER")
-        .and()
-        .formLogin();
+                .csrf().disable()
+                .httpBasic()
+                .and()
+                .authorizeRequests()
+                .antMatchers(HttpMethod.GET, "/dev/**").hasRole("ADMIN")
+                .antMatchers(HttpMethod.GET, "/external/**").hasRole("ADMIN")
+                .antMatchers(HttpMethod.POST, "/external/**").hasRole("ADMIN")
+                .antMatchers(HttpMethod.PUT, "/external/**").hasRole("ADMIN")
+                .antMatchers(HttpMethod.DELETE, "/external/**").hasRole("ADMIN")
+                .anyRequest().hasRole("USER")
+                .and()
+                .formLogin();
 
     }
 
