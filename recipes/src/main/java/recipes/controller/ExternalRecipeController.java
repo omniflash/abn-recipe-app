@@ -10,6 +10,8 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import recipes.dto.RecipeDTO;
 import recipes.service.RecipeService;
@@ -117,6 +119,29 @@ public class ExternalRecipeController {
         recipe.setId(id);
         LOGGER.info("(External call) Updating recipe with id: {}", id);
         recipeService.saveRecipe(recipe);
+        return HttpStatus.OK.toString();
+    }
+
+    @Operation(summary = "Patch recipe")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "Recipe updated",
+                    content = {@Content}),
+            @ApiResponse(responseCode = "400", description = "Bad request - Invalid input parameters",
+                    content = @Content),
+            @ApiResponse(responseCode = "401", description = "Unauthorized!",
+                    content = @Content)
+    })
+    @PreAuthorize("hasRole('ROLE_ADMIN')")
+    @ResponseBody
+    @PatchMapping("/editrecipe/{id}")
+    public String patchRecipe(@PathVariable("id") Integer id, @RequestBody RecipeDTO recipe,
+                              BindingResult result, Model model) {
+        if (result.hasErrors()) {
+            recipe.setId(id);
+            return "edit-recipe";
+        }
+        LOGGER.info("(External call) Patching recipe with id {}", id);
+        recipeService.patchRecipe(recipe, id);
         return HttpStatus.OK.toString();
     }
 

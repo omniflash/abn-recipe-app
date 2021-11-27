@@ -72,5 +72,19 @@ public class RecipeServiceImpl implements RecipeService {
         recipes.stream().forEach(x -> saveRecipe(x));
     }
 
+    @Override
+    public void patchRecipe(RecipeDTO recipe, Integer id) {
+        LOGGER.debug("Patching recipe with id: {}", id);
+        Optional<Recipe> result = recipeRepository.findById(id);
+        if (result.isPresent()) {
+
+            Recipe recipeInDb = result.get();
+            recipeRepository.save(mapper.mapToEntityForPatch(recipe, recipeInDb));
+
+        } else {
+            new IllegalArgumentException("Invalid recipe Id:" + id);
+        }
+    }
+
 
 }

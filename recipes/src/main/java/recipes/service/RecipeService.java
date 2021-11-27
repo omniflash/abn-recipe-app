@@ -20,4 +20,6 @@ public interface RecipeService {
     List<RecipeDTO> findAllRecipes();
 
     void saveRecipes(List<RecipeDTO> recipes);
+
+    void patchRecipe(RecipeDTO recipe, Integer id);
 }

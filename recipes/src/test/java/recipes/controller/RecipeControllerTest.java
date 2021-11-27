@@ -109,5 +109,24 @@ public class RecipeControllerTest {
         this.mockMvc.perform(put("/external/editrecipe/0").content(json)).andExpect(status().isForbidden());
     }
 
+    @Test
+    @WithMockUser(roles = {"USER", "ADMIN"})
+    public void testPatchWithAdminRole() throws Exception {
+
+        ObjectMapper jsonMapper = new ObjectMapper();
+        String json = jsonMapper.writeValueAsString(TestUtils.createDTO());
+
+        this.mockMvc.perform(patch("/external/editrecipe/0").with(csrf()).header(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_JSON).content(json)).andExpect(status().isOk());
+    }
+
+    @Test
+    @WithMockUser
+    public void testPatchWithUserRole() throws Exception {
+
+        ObjectMapper jsonMapper = new ObjectMapper();
+        String json = jsonMapper.writeValueAsString(TestUtils.createDTO());
+
+        this.mockMvc.perform(patch("/external/editrecipe/0").content(json)).andExpect(status().isForbidden());
+    }
 
 }

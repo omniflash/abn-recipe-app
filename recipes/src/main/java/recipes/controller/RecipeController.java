@@ -12,6 +12,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import recipes.dto.RecipeDTO;
@@ -83,10 +84,6 @@ public class RecipeController {
     @GetMapping("/editrecipe/{id}")
     public String showEditRecipePage(@PathVariable("id") Integer id, Model model) {
         RecipeDTO recipe = recipeService.findRecipeById(id);
-
-        if (recipe == null) {
-            new IllegalArgumentException("Invalid recipe Id:" + id);
-        }
 
         model.addAttribute("recipe", recipe);
         LOGGER.info("Showing edit page for recipe with id {}", id);

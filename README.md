@@ -65,7 +65,7 @@ Improvement points:
 - Security is implemented in a very simple and definitely not the most sophisticated way, but I still wanted to secure the application at least a bit
 - Fix adding of ingredients (due to the limitations of the template engine, adding new elements to a nested list is problematic without js hacks.)
 - Create a separate client module using a dedicated javascript framework (Vue.js, React, etc)
-
+- Add ingredient as a separate entity - could be used to add e.g. a vegetable field and if all ingredients are vegetables, the recipe will be vegetarian too
 
 
 

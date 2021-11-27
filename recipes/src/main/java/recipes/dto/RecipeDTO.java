@@ -22,7 +22,7 @@ public class RecipeDTO implements Serializable {
     private List<String> ingredients;
     private String cookingInstructions;
     private boolean vegetarian;
-    private int servesNoPeople;
+    private Integer servesNoPeople;
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd‐MM‐yyyy HH:mm")
     private Date creationDate;
 
@@ -66,11 +66,11 @@ public class RecipeDTO implements Serializable {
         this.vegetarian = vegetarian;
     }
 
-    public int getServesNoPeople() {
+    public Integer getServesNoPeople() {
         return servesNoPeople;
     }
 
-    public void setServesNoPeople(int servesNoPeople) {
+    public void setServesNoPeople(Integer servesNoPeople) {
         this.servesNoPeople = servesNoPeople;
     }
 
