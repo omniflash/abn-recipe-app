@@ -38,9 +38,8 @@ public class RecipeServiceImpl implements RecipeService {
         if (result.isPresent()) {
             return mapper.mapToDTO(result.get());
         } else {
-            new IllegalArgumentException("Invalid recipe Id:" + id);
+            throw new IllegalArgumentException("Invalid recipe Id:" + id);
         }
-        return null;
     }
 
     @Override
@@ -56,7 +55,7 @@ public class RecipeServiceImpl implements RecipeService {
         if (result.isPresent()) {
             recipeRepository.delete(result.get());
         } else {
-            new IllegalArgumentException("Invalid recipe Id:" + id);
+            throw new IllegalArgumentException("Invalid recipe Id:" + id);
         }
     }
 
