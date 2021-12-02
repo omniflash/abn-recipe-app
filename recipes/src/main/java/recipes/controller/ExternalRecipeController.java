@@ -110,6 +110,8 @@ public class ExternalRecipeController {
             @ApiResponse(responseCode = "403", description = "Forbidden! - Admin role needed",
                     content = @Content),
             @ApiResponse(responseCode = "405", description = "Method not allowed.",
+                    content = @Content),
+            @ApiResponse(responseCode = "500", description = "Wrong id.",
                     content = @Content)
     })
     @PutMapping("/editrecipe/{id}")
@@ -129,6 +131,8 @@ public class ExternalRecipeController {
             @ApiResponse(responseCode = "400", description = "Bad request - Invalid input parameters",
                     content = @Content),
             @ApiResponse(responseCode = "401", description = "Unauthorized!",
+                    content = @Content),
+            @ApiResponse(responseCode = "500", description = "Wrong id.",
                     content = @Content)
     })
     @PreAuthorize("hasRole('ROLE_ADMIN')")
@@ -155,6 +159,8 @@ public class ExternalRecipeController {
             @ApiResponse(responseCode = "403", description = "Forbidden! - Admin role needed",
                     content = @Content),
             @ApiResponse(responseCode = "405", description = "Method not allowed.",
+                    content = @Content),
+            @ApiResponse(responseCode = "500", description = "Wrong id.",
                     content = @Content)
     })
     @Operation(summary = "Delete recipe - JSON")

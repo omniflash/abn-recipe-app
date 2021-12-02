@@ -76,12 +76,10 @@ public class RecipeServiceImpl implements RecipeService {
         LOGGER.debug("Patching recipe with id: {}", id);
         Optional<Recipe> result = recipeRepository.findById(id);
         if (result.isPresent()) {
-
             Recipe recipeInDb = result.get();
             recipeRepository.save(mapper.mapToEntityForPatch(recipe, recipeInDb));
-
         } else {
-            new IllegalArgumentException("Invalid recipe Id:" + id);
+            throw new IllegalArgumentException("Invalid recipe Id:" + id);
         }
     }
 
